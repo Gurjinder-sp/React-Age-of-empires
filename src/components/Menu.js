@@ -3,10 +3,6 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
     Button
   } from '@chakra-ui/react'
   import { ChevronRightIcon, ChevronDownIcon } from '@chakra-ui/icons'
@@ -22,7 +18,6 @@ const FilterMenu = ({selected}) => {
         {value:6, name:'All'}
     ];
 
-    // const selected = () => {}
     return(
         <Menu>
   {({ isOpen }) => (

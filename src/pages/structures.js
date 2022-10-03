@@ -11,6 +11,7 @@ export const StructurePage = ({loaded, title}) => {
     
     useEffect(() => {
         title('Structures');
+        loaded(false);
 
         API({
           method: 'get',

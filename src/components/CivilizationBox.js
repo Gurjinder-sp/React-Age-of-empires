@@ -1,17 +1,12 @@
-import { useEffect, memo } from 'react';
+import { memo } from 'react';
 import {
     Heading,
     Box,
     Text,
-    Flex,
     OrderedList,
     ListItem
   } from '@chakra-ui/react';
 function Civilization({clz}) {
-
-    useEffect(() => {
-        // console.log(clz)
-    });
 
     const modify = (str='') => {
         let ind = str.lastIndexOf('/') + 1;

@@ -7,35 +7,22 @@ import {
     DrawerContent,
     DrawerCloseButton,
     useDisclosure,
-    Button,
     UnorderedList,
     ListItem,
-    Input,
-    Heading,
-    Box,
-    Text,
-    Container,
-    Flex
   } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { useRef, useEffect } from 'react';
-import { BrowserRouter as Router, useParams, useNavigate, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 function DrawerComp({open, close}) {
 const { isOpen, onOpen, onClose } = useDisclosure();
 const btnRef = useRef();
-// const navigate = useNavigate();
 useEffect(() => {
-    console.log(open);
-if(open) {
-    onOpen();
-};
+    if(open) {
+        onOpen();
+    };
 },[open])
-
-const navTo = (path) => {
-    // navigate(`/${path}`);
-}
 
     return (
         <>
