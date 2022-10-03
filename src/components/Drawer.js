@@ -43,7 +43,7 @@ useEffect(() => {
                     <ListItem my='2' fontSize='2rem' borderBottom='1px'><Link to='/'>Civilizations</Link></ListItem>
                     <ListItem my='2' fontSize='2rem' borderBottom='1px'>Units</ListItem>
                     <ListItem my='2' fontSize='2rem' borderBottom='1px'><Link to='/structures'>Structures</Link></ListItem>
-                    <ListItem my='2' fontSize='2rem' borderBottom='1px'>Technologies</ListItem>
+                    <ListItem my='2' fontSize='2rem' borderBottom='1px'><Link to='/techs'>Technologies</Link></ListItem>
                 </UnorderedList> 
             </DrawerBody>
 

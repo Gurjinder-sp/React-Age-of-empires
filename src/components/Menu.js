@@ -6,18 +6,13 @@ import {
     Button
   } from '@chakra-ui/react'
   import { ChevronRightIcon, ChevronDownIcon } from '@chakra-ui/icons'
+import { useContext, useState, useEffect, memo } from 'react';
+import { FilterContext } from '../App';
 
 const FilterMenu = ({selected}) => {
-
-    const options = [
-        {value:1, name:'Age of Kings'},
-        {value:2, name:'The Conquerors'},
-        {value:3, name:'Forgotten Empires'},
-        {value:4, name:'Rise of Rajas'},
-        {value:5, name:'African Kingdoms'},
-        {value:6, name:'All'}
-    ];
-
+    const options = useContext(FilterContext);
+    console.log('called');
+   
     return(
         <Menu>
   {({ isOpen }) => (
@@ -35,4 +30,4 @@ const FilterMenu = ({selected}) => {
     )
 }
 
-export default FilterMenu;
+export default memo(FilterMenu);

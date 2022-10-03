@@ -18,10 +18,6 @@ export const CivilizationPage = ({selVal,loaded, title}) => {
         API({
           method: 'get',
           url:'/civilizations',
-          withCredentials: false,
-          headers: {
-            crossOriginIsolated:false
-          }
         }).then(res => {
           setCivilizations(res.data.civilizations);
           setAllCivilizations(res.data.civilizations);
