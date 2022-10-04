@@ -7,7 +7,8 @@ import {
     ListItem,
     Flex
   } from '@chakra-ui/react';
-function Civilization({clz}) {
+import { API_DATA_TYPE } from './util.type';
+function Civilization({clz, openDetails}) {
 
     const modify = (str='') => {
         let ind = str.lastIndexOf('/') + 1;
@@ -24,8 +25,8 @@ function Civilization({clz}) {
                 </Flex>
                 <Text color='blue.400'><Text color='blue.600' as='b'>Team Bonus:</Text> {clz.team_bonus} </Text>
                 <Flex>
-                {clz?.unique_unit[0]?.length ? <Text color='blue.400' flex='50%'><Text color='blue.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
-                {clz?.unique_tech[0]?.length ? <Text color='blue.400' flex='50%'><Text color='blue.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
+                {clz?.unique_unit[0]?.length ? <Text color='blue.400' flex='50%'><Text color='blue.600' as='b' onClick={() => openDetails({url:clz.unique_unit[0],type:API_DATA_TYPE.unit})}>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
+                {clz?.unique_tech[0]?.length ? <Text color='blue.400' flex='50%'><Text color='blue.600' as='b' onClick={() => openDetails({url:clz.unique_tech[0],type:API_DATA_TYPE.tech})}>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
                 </Flex>
                 <Box mt='2'> <Text bg="blue.200" color='blue.600'>Civilization Bonus</Text>
                 <OrderedList p='2'>
@@ -49,8 +50,8 @@ function Civilization({clz}) {
                 </Flex>
                 <Text color='red.400'><Text color='red.600' as='b'>Team Bonus:</Text> {clz.team_bonus} </Text>
                 <Flex>
-                {clz?.unique_unit[0]?.length ? <Text color='red.400' flex='50%'><Text color='red.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
-                {clz?.unique_tech[0]?.length ? <Text color='red.400' flex='50%'><Text color='red.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
+                {clz?.unique_unit[0]?.length ? <Text color='red.400' flex='50%' onClick={() => openDetails({url:clz.unique_unit[0],type:API_DATA_TYPE.unit})}><Text color='red.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
+                {clz?.unique_tech[0]?.length ? <Text color='red.400' flex='50%' onClick={() => openDetails({url:clz.unique_tech[0],type:API_DATA_TYPE.tech})}><Text color='red.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
                 </Flex>
                 <Box mt='2'> <Text bg="red.200" color='red.600'>Civilization Bonus</Text>
                 <OrderedList p='2'>
@@ -73,8 +74,8 @@ function Civilization({clz}) {
                 </Flex>
                 <Text color='purple.400'><Text color='purple.600' as='b'>Team Bonus:</Text> {clz.team_bonus} </Text>
                 <Flex>
-                {clz?.unique_unit[0]?.length ? <Text color='purple.400' flex='50%'><Text color='purple.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
-                {clz?.unique_tech[0]?.length ? <Text color='purple.400' flex='50%'><Text color='purple.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
+                {clz?.unique_unit[0]?.length ? <Text color='purple.400' flex='50%' onClick={() => openDetails({url:clz.unique_unit[0],type:API_DATA_TYPE.unit})}><Text color='purple.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
+                {clz?.unique_tech[0]?.length ? <Text color='purple.400' flex='50%' onClick={() => openDetails({url:clz.unique_tech[0],type:API_DATA_TYPE.tech})}><Text color='purple.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
                 </Flex>
                 <Box mt='2'> <Text bg="purple.200" color='purple.600'>Civilization Bonus</Text>
                 <OrderedList p='2'>
@@ -97,8 +98,8 @@ function Civilization({clz}) {
             </Flex>
             <Text color='green.400'><Text color='green.600' as='b'>Team Bonus:</Text> {clz.team_bonus} </Text>
             <Flex>
-            {clz?.unique_unit[0]?.length ? <Text color='green.400' flex='50%'><Text color='green.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
-            {clz?.unique_tech[0]?.length ? <Text color='green.400' flex='50%'><Text color='green.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
+            {clz?.unique_unit[0]?.length ? <Text color='green.400' textTransform='capitalize' flex='50%' onClick={() => openDetails({url:clz.unique_unit[0],type:API_DATA_TYPE.unit})}><Text color='green.600' as='b'>Unique Unit:</Text> {modify(clz.unique_unit[0])}</Text> : ''}
+            {clz?.unique_tech[0]?.length ? <Text color='green.400' textTransform='capitalize' flex='50%' onClick={() => openDetails({url:clz.unique_tech[0],type:API_DATA_TYPE.tech})}><Text color='green.600' as='b'>Unique Tech:</Text> {modify(clz.unique_tech[0])}</Text> : ''}
             </Flex>
             <Box mt='2'> <Text bg="green.200" color='green.600'>Civilization Bonus</Text>
             <OrderedList p='2'>
