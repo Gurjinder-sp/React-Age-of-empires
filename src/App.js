@@ -12,6 +12,7 @@ import { StructurePage } from './pages/structures';
 import { CivilizationPage } from './pages/Civilizations';
 import Technology from './pages/technologies';
 import { civilizationFilterOptions, AgeFilterOptions} from "./filter.model";
+import UnitPage from './pages/Units';
 
 
 export const FilterContext = createContext();
@@ -59,7 +60,9 @@ function App() {
     <Routes>
       <Route path='/' element={<CivilizationPage selVal={selectedFilter} loaded={(val) => setLoaded(val)} title={(title) => setPageTitle(title)} />} />
       <Route path="/structures" element={<StructurePage selVal={selectedFilter} loaded={(val) => setLoaded(val)} title={(title) => setPageTitle(title)} />} />
-      <Route path="/techs" element={<Technology loaded={(val) => setLoaded(val)} title={(title) => setPageTitle(title)} />} />
+      <Route path="/techs" element={<Technology selVal={selectedFilter} loaded={(val) => setLoaded(val)} title={(title) => setPageTitle(title)} />} />
+      <Route path="/units" element={<UnitPage selVal={selectedFilter} loaded={(val) => setLoaded(val)} title={(title) => setPageTitle(title)} />} />
+
     </Routes>
     
     </Box>

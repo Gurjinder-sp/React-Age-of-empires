@@ -35,6 +35,7 @@ export const StructurePage = ({loaded, title, selVal}) => {
            
         const filterExpansion = (selVal) => {
             console.log('called',selVal);
+            setStructures(allStructList);
             if(selVal?.value !== 5) {
                 setStructures(allStructList.filter((opt) => {return opt.age === selVal?.name }));
             }
