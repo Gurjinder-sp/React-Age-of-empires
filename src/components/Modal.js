@@ -22,6 +22,7 @@ import { API_DATA_TYPE } from './util.type';
     const [apiData, setApiData] = useState({});
     useEffect(() => {
         console.log(isOpenT);
+        setLoader(true);
         let urlIs = '';
         if(isOpenT) {
           onOpen();
@@ -29,7 +30,7 @@ import { API_DATA_TYPE } from './util.type';
             urlIs=`/${data.type}/${data.url.slice(index +1)}`
           callApi(urlIs)
 
-          console.log(data);
+          // console.log(data);
 
         
         }
@@ -45,8 +46,10 @@ import { API_DATA_TYPE } from './util.type';
         // setAllCivilizations(res.data.civilizations);
         // loaded(true);
         setApiData(res.data);
-      console.log(res)})
       setLoader(false);
+
+      // console.log(res)
+    })
     }
 
 
@@ -54,10 +57,10 @@ import { API_DATA_TYPE } from './util.type';
     //   console.log(data);
     // }, [data])
 
-    useEffect(() => {
-        isCloseT();
-        console.log(isOpen)
-    },[isOpen]);
+    // useEffect(() => {
+    //     isCloseT();
+    //     console.log(isOpen)
+    // },[isOpen]);
 
     const modify = (str='') => {
       let ind = str.lastIndexOf('/') + 1;
@@ -70,7 +73,7 @@ import { API_DATA_TYPE } from './util.type';
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent height='30vh'>
             <ModalHeader textTransform='capitalize' bg='gray.800' color='white'>{data.type} Details</ModalHeader>
             <ModalCloseButton color='white' />
             <ModalBody>
@@ -82,7 +85,7 @@ import { API_DATA_TYPE } from './util.type';
                 emptyColor='gray.200'
                 color='black.500'
                 size='xl'
-              /> : ''}
+              /> : <>
                {apiData?.name ? <Heading as='h3' color='gray.800'>{apiData.name}</Heading>: '' }
                <Flex>
                {apiData?.hit_points ? <Text flex='50%'><Text as='b'>Hit Points:</Text> {apiData.hit_points}</Text>: '' }
@@ -98,6 +101,7 @@ import { API_DATA_TYPE } from './util.type';
                {apiData?.created_in ? <Text textTransform='capitalize'> <Text as='b'>Created In:</Text> {modify(apiData.created_in)}</Text>: '' }
                {apiData?.develops_in ? <Text textTransform='capitalize'> <Text as='b'>Created In:</Text> {modify(apiData.develops_in)}</Text>: '' }
                {apiData?.description ? <Text> <Text as='b'>Description:</Text> {apiData.description}</Text>: '' }
+               </> }
             </ModalBody>
   
             <ModalFooter>

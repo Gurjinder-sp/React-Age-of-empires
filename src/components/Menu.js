@@ -11,7 +11,7 @@ import { FilterContext } from '../App';
 
 const FilterMenu = ({selected}) => {
     const options = useContext(FilterContext);
-    console.log('called');
+    // console.log('called');
    
     return(
         <Menu>

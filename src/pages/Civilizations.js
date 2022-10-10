@@ -29,17 +29,17 @@ export const CivilizationPage = ({selVal,loaded, title}) => {
     }, []);
 
     useEffect(() => {
-    console.log('filterrr',selVal)
+    // console.log('filterrr',selVal)
     filterExpansion(selVal);
     },[selVal]);
 
-      console.log('ab',selVal);
-      console.log('modal', modalOpen)
+      // console.log('ab',selVal);
+      // console.log('modal', modalOpen)
     
     const filterExpansion = (selVal) => {
-        console.log('called',selVal);
-        console.log('civil', civilizations);
-        console.log('all', allCivilization);
+        // console.log('called',selVal);
+        // console.log('civil', civilizations);
+        // console.log('all', allCivilization);
         setCivilizations(allCivilization);
 
         if(selVal?.value !== 6) {
