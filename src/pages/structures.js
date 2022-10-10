@@ -25,21 +25,18 @@ export const StructurePage = ({loaded, title, selVal}) => {
           setAllStructList(res.data.structures);
           loaded(true);
             
-        console.log(res)})
+      })
       }, []);
 
       useEffect(() => {
-        console.log('filterrr',selVal)
         filterExpansion(selVal);
         },[selVal]);
            
         const filterExpansion = (selVal) => {
-            console.log('called',selVal);
             setStructures(allStructList);
             if(selVal?.value !== 5) {
                 setStructures(allStructList.filter((opt) => {return opt.age === selVal?.name }));
             }
-            console.log(structList)
         }
 
     return (

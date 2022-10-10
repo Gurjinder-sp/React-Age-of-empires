@@ -26,22 +26,19 @@ function Technology({title,loaded, selVal }) {
           setAllTechList(res.data.technologies);
           loaded(true);
             
-        console.log(res)})
+      })
       }, []);
 
       useEffect(() => {
-        console.log('filterrr',selVal)
         filterExpansion(selVal);
         },[selVal]);
            
 
       const filterExpansion = (selVal) => {
-        console.log('called',selVal);
         setTechs(allTechList);
         if(selVal?.value !== 5) {
             setTechs(allTechList.filter((opt) => {return opt.age === selVal?.name }));
         }
-        // console.log(structLis)
     }
 
     return (

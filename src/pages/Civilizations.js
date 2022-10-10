@@ -25,21 +25,15 @@ export const CivilizationPage = ({selVal,loaded, title}) => {
           setCivilizations(res.data.civilizations);
           setAllCivilizations(res.data.civilizations);
           loaded(true);
-        console.log(res)})
+      })
     }, []);
 
     useEffect(() => {
-    // console.log('filterrr',selVal)
     filterExpansion(selVal);
     },[selVal]);
 
-      // console.log('ab',selVal);
-      // console.log('modal', modalOpen)
     
     const filterExpansion = (selVal) => {
-        // console.log('called',selVal);
-        // console.log('civil', civilizations);
-        // console.log('all', allCivilization);
         setCivilizations(allCivilization);
 
         if(selVal?.value !== 6) {
@@ -48,15 +42,12 @@ export const CivilizationPage = ({selVal,loaded, title}) => {
     }
 
     const setOpenModalAndData = (data) => {
-      console.log(data);
       setModalData(data)
       setModalOpen(true);
     }
 
     return (
       <>
-        {/* <Button onClick={}>test</Button> */}
-
         <Flex flexWrap='wrap' maxHeight='inherit' overflow='auto' maxH='94vh'>
         {civilizations.map((clz) => {return <Civilization clz={clz} key={clz.id} openDetails={(data) =>setOpenModalAndData(data)} />})}
       </Flex>

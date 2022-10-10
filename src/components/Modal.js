@@ -6,22 +6,18 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Button,
     useDisclosure,
     Spinner,
-    Box, 
     Heading, Text, Flex
   } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import API from '../axios';
-import { API_DATA_TYPE } from './util.type';
 
   function BasicModal({isOpenT, isCloseT, data}) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [loader, setLoader] = useState(true);
     const [apiData, setApiData] = useState({});
     useEffect(() => {
-        console.log(isOpenT);
         setLoader(true);
         let urlIs = '';
         if(isOpenT) {
@@ -29,38 +25,20 @@ import { API_DATA_TYPE } from './util.type';
             let index = data.url.lastIndexOf('/');
             urlIs=`/${data.type}/${data.url.slice(index +1)}`
           callApi(urlIs)
-
-          // console.log(data);
-
-        
         }
     },[isOpenT,data])
-
 
     const callApi = (url) => {
       API({
         method: 'get',
         url:url,
       }).then(res => {
-        // setCivilizations(res.data.civilizations);
-        // setAllCivilizations(res.data.civilizations);
-        // loaded(true);
+       
         setApiData(res.data);
-      setLoader(false);
+        setLoader(false);
 
-      // console.log(res)
     })
     }
-
-
-    // useEffect(() => {
-    //   console.log(data);
-    // }, [data])
-
-    // useEffect(() => {
-    //     isCloseT();
-    //     console.log(isOpen)
-    // },[isOpen]);
 
     const modify = (str='') => {
       let ind = str.lastIndexOf('/') + 1;
@@ -69,7 +47,6 @@ import { API_DATA_TYPE } from './util.type';
 
     return (
       <>
-        {/* <Button onClick={onOpen}>Open Modal</Button> */}
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
@@ -77,7 +54,6 @@ import { API_DATA_TYPE } from './util.type';
             <ModalHeader textTransform='capitalize' bg='gray.800' color='white'>{data.type} Details</ModalHeader>
             <ModalCloseButton color='white' />
             <ModalBody>
-              {/* <Lorem count={2} /> */}
               {loader ? 
               <Spinner
                 thickness='4px'
@@ -105,10 +81,6 @@ import { API_DATA_TYPE } from './util.type';
             </ModalBody>
   
             <ModalFooter>
-              {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
-                Close
-              </Button> */}
-              {/* <Button variant='ghost'>Secondary Action</Button> */}
             </ModalFooter>
           </ModalContent>
         </Modal>

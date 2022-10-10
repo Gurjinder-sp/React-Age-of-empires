@@ -6,12 +6,11 @@ import {
     Button
   } from '@chakra-ui/react'
   import { ChevronRightIcon, ChevronDownIcon } from '@chakra-ui/icons'
-import { useContext, useState, useEffect, memo } from 'react';
+import { useContext, memo } from 'react';
 import { FilterContext } from '../App';
 
 const FilterMenu = ({selected}) => {
     const options = useContext(FilterContext);
-    // console.log('called');
    
     return(
         <Menu>

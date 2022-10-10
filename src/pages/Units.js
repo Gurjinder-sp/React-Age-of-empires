@@ -26,17 +26,15 @@ function UnitPage({title, loaded, selVal}) {
           setAllUnits(res.data.units);
           loaded(true);
             
-        console.log(res)})
+      })
     },[]);
 
     useEffect(() => {
-        console.log('filterrr',selVal)
         filterExpansion(selVal);
         },[selVal]);
            
 
       const filterExpansion = (selVal) => {
-        console.log('called',selVal);
         setUnits(allUnits);
         if(selVal?.value !== 5) {
             setUnits(allUnits.filter((opt) => {return opt.age === selVal?.name }));

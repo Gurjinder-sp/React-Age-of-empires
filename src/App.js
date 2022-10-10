@@ -26,8 +26,6 @@ function App() {
   const [filterOptions, setFilterOptions] = useState([]); 
 
   const toggleTheme = (evt) => {
-    console.log(evt)
-    console.log(pageTitle)
     setDarkMode(evt);
   }
 
